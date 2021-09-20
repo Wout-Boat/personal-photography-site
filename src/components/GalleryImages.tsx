@@ -9,7 +9,7 @@ type props = {
 
 const GalleryImages: React.FC<props> = ({ images, folderName }) => {
     const imgArr = images.map((image: string) => (
-        <img src={url + folderName + '/thumbs/' + image}/>
+        <img src={url + folderName + '/thumbs/' + image} alt=''/>
     ))
     return (
         <div>{imgArr}</div>
