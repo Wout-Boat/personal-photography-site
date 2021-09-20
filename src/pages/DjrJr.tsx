@@ -1,23 +1,25 @@
 import React from "react";
 // Styles
 import {Gallery} from "./Gallery.styles";
+import GalleryImages from "../components/GalleryImages";
 // js
 
-const folder = '2019-10-22-Donald-Trump-Jr';
+const folderurl = '2019-10-22-Donald-Trump-Jr';
+const imageList = [
+    'IMG_7181.jpg',
+    'IMG_7197.jpg',
+    'IMG_7202.jpg',
+    'IMG_7417.jpg',
+    'IMG_7437.jpg',
+]
 
 const DjtJr: React.FC = () =>
     (
         <Gallery>
-            <img className={'img'}
-                 src='https://d3vv8trcq40b0k.cloudfront.net/2019-10-22-Donald-Trump-Jr/thumbs/IMG_7181.jpg'/>
-            <img className={'img'}
-                 src='https://d3vv8trcq40b0k.cloudfront.net/2019-10-22-Donald-Trump-Jr/thumbs/IMG_7197.jpg'/>
-            <img className={'img'}
-                 src='https://d3vv8trcq40b0k.cloudfront.net/2019-10-22-Donald-Trump-Jr/thumbs/IMG_7202.jpg'/>
-            <img className={'img'}
-                 src='https://d3vv8trcq40b0k.cloudfront.net/2019-10-22-Donald-Trump-Jr/thumbs/IMG_7417.jpg'/>
-            <img className={'img'}
-                 src='https://d3vv8trcq40b0k.cloudfront.net/2019-10-22-Donald-Trump-Jr/thumbs/IMG_7437.jpg'/>
+            <GalleryImages
+                folderName={folderurl}
+                images={imageList}
+            />
         </Gallery>
     );
 
