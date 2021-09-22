@@ -30,7 +30,7 @@ const DjtJr: React.FC = () =>
         <Gallery>
             <GalleryImages
                 folderName={folderUrl}
-                images={imageList}
+                imagesArr={imageList}
             />
         </Gallery>
     );

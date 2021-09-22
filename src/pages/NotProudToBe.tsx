@@ -1,37 +1,82 @@
 import React from "react";
-// Styles
+import {contentPage} from "../types/ContentPage.type";
+import ApiDataService from "../services/api.service";
 import {Gallery} from "./Gallery.styles";
 import GalleryImages from "../components/GalleryImages";
-// js
 
-const folderUrl = '2019-09-19-Not-Proud-To-Be';
-const imageList = [
-    'IMG_4361.jpg',
-    'IMG_4302.jpg',
-    'IMG_4522.jpg',
-    'IMG_4378.jpg',
-    'IMG_4414.jpg',
-    'IMG_4204.jpg',
-    'IMG_4344.jpg',
-    'IMG_3805.jpg',
-    'IMG_3970.jpg',
-    'IMG_3618.jpg',
-    'IMG_4335.jpg',
-    'IMG_3832.jpg',
-    'IMG_3766.jpg',
-    'IMG_4286.jpg',
-    'IMG_3720.jpg',
-    'IMG_4305.jpg',
-]
+type Props = {};
 
-const NotProudToBe: React.FC = () =>
-    (
-        <Gallery>
-            <GalleryImages
-                folderName={folderUrl}
-                images={imageList}
-            />
-        </Gallery>
-    );
+type state = {
+    receivedData: contentPage | null,
+    loading: boolean,
+    imageArr: string[],
+    imageLocation: string,
+};
+
+class NotProudToBe extends React.Component<Props, state> {
+
+    constructor(props: Props) {
+        super(props);
+        this.retrievePage = this.retrievePage.bind(this);
+
+        this.state = {
+            receivedData: null,
+            loading: true,
+            imageArr: [],
+            imageLocation: "",
+        };
+    }
+
+    retrievePage() {
+        ApiDataService.getPage('notproudtobe')
+            .then(response => {
+                let result = []
+                for (let i = 0; i < response.data.Item.images.L.length; i++) {
+                    result.push(response.data.Item.images.L[i].S)
+                }
+                this.setState({
+                    imageArr: result,
+                    imageLocation: response.data.Item.imageurl.S,
+                    loading: false
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
+
+    componentDidMount() {
+        this.setState({
+            loading: true
+        })
+        console.log(this.state.loading)
+        this.retrievePage()
+    }
+
+
+    render() {
+        const {imageArr, imageLocation, loading} = this.state;
+
+        const LoadedContent = () => {
+            return <GalleryImages imagesArr={imageArr} folderName={imageLocation}/>;
+        }
+
+        const LoadingScreen = () => {
+            return (
+                <div>
+                    Loading Content...
+                </div>
+            )
+        }
+
+        return (
+            <div>
+                <Gallery>
+                    {!loading ? <LoadedContent /> : <LoadingScreen /> }
+                </Gallery>
+            </div>
+        )
+    }
+}
 
 export default NotProudToBe;

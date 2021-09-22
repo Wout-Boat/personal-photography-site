@@ -1,6 +1,6 @@
 import React from "react";
 import {NavigationStyles} from "./Navigation.styles";
-import {Link, Router} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Navigation: React.FC = () => (
     <NavigationStyles>

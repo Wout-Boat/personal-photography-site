@@ -32,7 +32,7 @@ const imageList = [
 
 const ClimateStrikeDenver: React.FC = () => (
     <Gallery>
-        <GalleryImages images={imageList} folderName={folderUrl}/>
+        <GalleryImages imagesArr={imageList} folderName={folderUrl}/>
     </Gallery>
 );
 
