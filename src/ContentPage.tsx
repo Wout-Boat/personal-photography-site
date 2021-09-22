@@ -4,8 +4,6 @@ import ApiDataService from "./services/api.service"
 import {Gallery} from "./styles/Gallery.styles";
 import GalleryImages from "./components/GalleryImages";
 
-// TODO: This will be used to load all of the pages from the database. There will need to be some changes to check the
-//  url it is being served on and to make that get different items from the database.
 type Props = {
 };
 
