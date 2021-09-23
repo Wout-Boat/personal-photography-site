@@ -7,9 +7,10 @@ const App: React.FC = () => {
 
     return (
         <div>
+            <Navigation />
             <Route exact path={'/'} component={ContentPage} />
             <Route path={'/:page'} render={() => <ContentPage key={Math.random()}/>} />
-            <Navigation/>
+            <Navigation />
         </div>
     );
 }
