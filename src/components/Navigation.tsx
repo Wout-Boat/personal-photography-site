@@ -1,16 +1,16 @@
 import React from "react";
-import {NavigationStyles} from "./Navigation.styles";
-import {Link} from "react-router-dom";
+import {NavigationStyles} from "../styles/Navigation.styles";
+import { Link } from "react-router-dom";
 
 const Navigation: React.FC = () => (
     <NavigationStyles>
             <div className={"row"}>
                 <div className={'column'}>
-                    <Link to={'/'}><p>Kirk 2 ft. DJT Jr.</p></Link>
-                    <Link to={'/Not-Proud-To-Be'}><p>Not Proud To Be</p></Link>
+                    <Link to="/kirk2"><p>Kirk 2 ft. DJT Jr.</p></Link>
+                    <Link to="/notproudtobe"><p>Not Proud To Be</p></Link>
                 </div>
                 <div className={'column'}>
-                    <Link to={'/Climate-Strike-Denver'}><p>Climate Strike Denver</p></Link>
+                    <Link to="/climatestrikedenver"><p>Climate Strike Denver</p></Link>
                 </div>
             </div>
     </NavigationStyles>
