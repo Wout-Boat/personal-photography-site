@@ -33,7 +33,7 @@ class ContentPage extends React.Component<Props, state> {
     retrievePage() {
         let requestedPage;
         if (window.location.pathname.substring(1) === "") {
-            requestedPage = "butterflypavillion"
+            requestedPage = "butterflypavilion"
         } else {
             requestedPage = window.location.pathname.substring(1)
         }
