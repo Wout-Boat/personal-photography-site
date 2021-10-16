@@ -1,5 +1,6 @@
 {
   "name": "personal-site-react-ts",
+  "homepage": "https://img.wout.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
