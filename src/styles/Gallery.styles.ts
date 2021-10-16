@@ -12,4 +12,4 @@ export const Gallery = styled.div`
     border-radius: 15px;
   }
 
-`
+`;
