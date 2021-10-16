@@ -1,5 +1,5 @@
 import React from "react";
-import {contentPage} from "./types/ContentPage.type";
+import {ContentPageType} from "./types/ContentPage.type";
 import ApiDataService from "./services/api.service"
 import {Gallery} from "./styles/Gallery.styles";
 import GalleryImages from "./components/GalleryImages";
@@ -8,7 +8,7 @@ type Props = {
 };
 
 type state = {
-    receivedData: contentPage | null,
+    receivedData: ContentPageType | null,
     loading: boolean,
     imageArr: string[],
     imageLocation: string,

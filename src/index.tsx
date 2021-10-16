@@ -8,11 +8,7 @@ import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Router history={history}>
-            <App />
-        </Router>
-    </React.StrictMode>,
+            <App />,
     document.getElementById('root')
 );
 

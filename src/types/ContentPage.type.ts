@@ -1,5 +1,14 @@
-export type contentPage = {
-    pageName: string;
-    images: string[];
-    imageurl: string;
+export type ContentPageType = {
+    response?: {
+        data: {
+            Item: {
+                images: {
+                    SS: string[];
+                }
+                imageurl: {
+                    S: string;
+                }
+            }
+        }
+    }
 }
