@@ -44,12 +44,8 @@ class ContentPage extends React.Component<Props, state> {
                         notFound: true,
                     })
                 } else {
-                    let result = []
-                    for (let i = 0; i < response.data.Item.images.L.length; i++) {
-                        result.push(response.data.Item.images.L[i].S)
-                    }
                     this.setState({
-                        imageArr: result,
+                        imageArr: response.data.Item.images.SS,
                         imageLocation: response.data.Item.imageurl.S,
                         loading: false
                     });
