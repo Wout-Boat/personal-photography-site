@@ -72,7 +72,6 @@ class Navigation extends React.Component<Props, State> {
     }
 
 }
-
 // const Navigation: React.FC = () => (
 //
 // <NavigationStyles>
