@@ -1,5 +1,4 @@
-import http from "../http-common"
-import { ContentPageType } from "../types/ContentPage.type";
+import http from "../http-common";
 
 class ApiDataService {
     getPage(pageName: string): Promise<any> {
