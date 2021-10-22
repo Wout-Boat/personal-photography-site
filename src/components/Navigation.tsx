@@ -44,12 +44,6 @@ class Navigation extends React.Component<Props, State> {
             });
         }
 
-        const list = pages.map((page, index) =>
-            <ListItem>
-                <Link to={"/" + page} key={Math.random()} ><p>{pageNames[index]}</p></Link><br />
-            </ListItem>
-        );
-
         return (
             <NavigationStyles>
                 <div className={"heading"}>
@@ -64,7 +58,11 @@ class Navigation extends React.Component<Props, State> {
                 <Drawer open={left} onClose={toggleDrawer(false)}>
                     <List>
                         <ListItem onClick={toggleDrawer(false)}>
-                            {list}
+                            {pages.map((page, index) =>
+                                <ListItem>
+                                    <Link to={"/" + page} key={Math.random()} ><p>{pageNames[index]}</p></Link>
+                                </ListItem>
+                            )}
                         </ListItem>
                     </List>
                 </Drawer>
