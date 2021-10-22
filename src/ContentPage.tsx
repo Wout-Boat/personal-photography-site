@@ -1,5 +1,5 @@
 import React from "react";
-import {contentPage} from "./types/ContentPage.type";
+import {ContentPageType} from "./types/ContentPage.type";
 import ApiDataService from "./services/api.service"
 import {Gallery} from "./styles/Gallery.styles";
 import GalleryImages from "./components/GalleryImages";
@@ -8,7 +8,7 @@ type Props = {
 };
 
 type state = {
-    receivedData: contentPage | null,
+    receivedData: ContentPageType | null,
     loading: boolean,
     imageArr: string[],
     imageLocation: string,
@@ -33,7 +33,7 @@ class ContentPage extends React.Component<Props, state> {
     retrievePage() {
         let requestedPage;
         if (window.location.pathname.substring(1) === "") {
-            requestedPage = "butterflypavillion"
+            requestedPage = "butterflypavilion"
         } else {
             requestedPage = window.location.pathname.substring(1)
         }
@@ -44,12 +44,8 @@ class ContentPage extends React.Component<Props, state> {
                         notFound: true,
                     })
                 } else {
-                    let result = []
-                    for (let i = 0; i < response.data.Item.images.L.length; i++) {
-                        result.push(response.data.Item.images.L[i].S)
-                    }
                     this.setState({
-                        imageArr: result,
+                        imageArr: response.data.Item.images.SS,
                         imageLocation: response.data.Item.imageurl.S,
                         loading: false
                     });
